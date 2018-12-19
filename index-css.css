@@ -1,0 +1,228 @@
+/* Padding and border zijn nu deel van de totale lengte en breedte van alle elementen */
+* {
+	box-sizing: border-box;
+}
+
+/* Lijnhoogte instellen, fonts instellen, achtergrondkleur van de body instellen */
+body {
+	line-height: 1.5;
+	font-family: 'Merriweather', Georgia, 'Times New Roman', Times, serif;
+	background-color: whitesmoke;
+}
+
+/* Kleur van hoofding 4 instellen, net als de margin, padding en de grootte van de font */
+h4 {
+	color: darkslategray;
+	margin-top: 0.5em;
+	padding-top: 2em;
+	margin-left: 10%;
+	margin-right: auto;
+	font-size: 1.4em;
+}
+
+/* Elk paragraaf- en adreselement instellen met de juiste opmaak */
+p,
+address {
+	color: darkslategray;
+	max-width: 34em;
+	padding: 0.5em 1em;
+	background-color: whitesmoke;
+	border: 2px solid dimgray;
+	margin-left: 10%;
+	margin-right: 10%;
+	font-size: 1.2em;
+}
+
+ul {
+	margin: 0;
+	padding: 0;
+	list-style: none; /* Zorgt ervoor dat er geen aanduiding van de lijst is (bolletjes,streepjes,etc..) */
+}
+
+h2,
+h3,
+a {
+	color: darkslategray;
+}
+
+a {
+	text-decoration: none; /* Zorgt ervoor dat de opmaak van de tekst in het a-element niet gewijzigd wordt */
+}
+
+.hoofding {
+	margin: 0;
+	font-size: 2em;
+}
+
+.hoofdNavigatie {
+	margin-top: 5px;
+}
+
+.hoofding a,
+.hoofdNavigatie a {
+	padding: 10px 15px;
+	text-align: center; /* Centreert tekst */
+	display: block; /* Zorgt ervoor dat het element de hele breedte inneemt en dat deze "klikbaar" is */
+}
+
+.hoofdNavigatie a {
+	text-transform: uppercase; /* Maakt van de hele tekst hoofdletters */
+}
+
+.hoofdNavigatie a {
+	color: darkslategray;
+	font-size: 1em;
+}
+.hoofding a:focus,
+.hoofdNavigatie a:focus,
+.hoofding a:hover,
+.hoofdNavigatie a:hover, /* Als er op een a-element gehoverd wordt in de klasse .hoofding of .hoofdNavigatie, dan: */
+.home a {
+	color: whitesmoke;
+	background-color: grey;
+}
+
+.header {
+	padding-top: 0.5em;
+	padding-bottom: .5em;
+	border: 2px solid dimgray;
+	background-color: whitesmoke;
+	box-shadow: 0 0 14px 0 rgba(0, 0, 0, 0.75); /* Stelt de schaduw in rond de box */
+	border-radius: 5px; /* Stelt de radius van de hoeken in van de border */
+}
+
+.facebook:hover,
+.facebook:focus {  
+	opacity: 0.7; /* Maakt de Facebook link een beetje transparant als men er over hovert */
+}
+
+.footer {
+	position: fixed; /* Fixt de positie van de footer (Facebook link) rechts-onder het scherm */
+	right: 2em;
+	bottom: 2em;
+}
+
+
+/* CSS voor de contact-pagina */
+
+label {
+	color: darkslategray;
+	margin-left: 10%;
+	text-decoration: none;
+}
+
+.contact2 {
+	color: darkslategray;
+	margin-left: 10%;
+	text-decoration: none;
+	background-color: whitesmoke;
+	border: 2px solid dimgray;
+	padding: 0.5em 1em;
+}
+
+.contact2:hover,
+.contact2:focus {
+	color: whitesmoke;
+	background-color: grey;
+}
+
+.divcontact2 {
+	margin-top: 2em;
+    margin-bottom: 5%;
+}
+
+input[type=text],
+textarea {
+	display: flex;
+	margin-left: 10%;
+	margin-right: 10%;
+	max-width: 34em;
+	padding: 12px;
+	border: 2px solid;
+	margin-top: 6px;
+	margin-bottom: 16px;
+}
+
+input[type=button] {
+	background-color: whitesmoke;
+	color: darkslategrey;
+	cursor: pointer; /* Stelt de cursor als een handje in als men over de button hovert */
+	border: 2px solid dimgray;
+	margin-left: 10%;
+	margin-bottom: 5%;
+    padding: 10px;
+}
+
+/* CSS voor de portfolio-pagina */
+
+.rij,
+.rij>.kolom {  /* .rij>.kolom selecteert enkel de .kolom die een onmiddelijke afstammeling is van een .rij */
+	padding: 8px;
+}
+
+.kolom {
+	float: left; /* 1 kolom */
+	width: 100%;
+}
+
+.rij:after { /* Achter elke rij het volgende doen: */
+	content: ""; /* Geen content toevoegen */
+	display: table;
+	clear: both; /* Zorgt ervoor dat er geen element links of rechts kan zweven */
+}    
+
+/* MEDIA QUERIES */
+
+@media screen and (min-width: 769px) { /* Als het scherm MINSTENS 769px breed is dan: */
+	.header,
+	.hoofdNavigatie {
+		display: flex; /* Verdeelt de items over de container */
+	}
+	.header {
+		flex-direction: column; /* Zet de navigatie-elementen in een kolom */
+		align-items: center; /* Centreert de navigatie-elementen */
+	}
+	.header {
+		width: 100%; /* Header neemt de volledige breedte van de pagina in */
+		margin: 0 auto;
+	}
+	.achtergrond {
+		background-image: url(images/17-ConvertImage.jpg);
+		height: 95vh;
+		background-size: cover;
+	}
+	h4 {
+		color: whitesmoke;
+	}
+    /* VOOR PORTFOLIO: */
+	.kolom {
+		width: 50%; /* 2 kolommen die naast elkaar zweven */
+	}
+    /* VOOR CONTACT2: */
+	label {
+		color: whitesmoke;
+	}
+}
+
+@media screen and (min-width: 1025px) { /* Als het scherm MINSTENS 1025px breed is dan: */
+	.header {
+		flex-direction: row; /* Zet de navigatie-elementen in een rij */
+		justify-content: space-between; /* Verdeelt de spatie gelijk tussen alle navigatie-elementen */
+	}
+    /* VOOR PORTFOLIO: */
+	.kolom {
+		width: 25%; /* 4 kolommen die naast elkaar zweven */
+	}
+	.achtergrond {
+		background-image: url(images/17-ConvertImage.jpg);
+		height: 95vh;
+		background-size: cover;
+	}
+	h4 {
+		color: whitesmoke;
+	}
+    /* VOOR CONTACT2: */
+	label {
+		color: whitesmoke;
+	}
+}
